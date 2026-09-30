@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QuickNotes - Home</title>
+  </head>
+  <body>
+    <header>
+      <h1>QuickNotes</h1>
+      <p>Your simple note-taking companion</p>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <h2>Add a Note</h2>
+        <form action="#" method="POST">
+          <div>
+            <label for="note-title">Title:</label>
+            <input
+              type="text"
+              id="note-title"
+              name="note-title"
+              placeholder="e.g. Grocery list"
+              required
+            />
+          </div>
+          <div>
+            <label for="note-content">Note Content:</label>
+            <textarea
+              id="note-content"
+              name="note-content"
+              rows="4"
+              placeholder="Write your note here..."
+              required
+            ></textarea>
+          </div>
+          <button type="submit">Add Note</button>
+        </form>
+      </section>
+
+      <section>
+        <h2>Recent Notes</h2>
+        <ul>
+          <li>
+            <h3>Complete PLP Day 1</h3>
+            <p>Finish HTML tags, validate page, and push to GitHub.</p>
+          </li>
+          <li>
+            <h3>Setup Linux WSL</h3>
+            <p>Configured Ubuntu, Git, and VS Code on Windows.</p>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 QuickNotes. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
