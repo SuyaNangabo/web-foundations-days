@@ -1,0 +1,266 @@
+/* 1. Theme colours and base styles */
+:root {
+  --teal: #0f7b78;
+  --teal-dark: #0a5856;
+  --clay: #b4533a;
+  --tangerine: #ff8a1c;
+  --persimmon: #ff6a3d;
+  --white: #ffffff;
+  --cream: #fff6ef;
+  --peach: #fff1e6;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: var(--cream);
+  color: #3a2a24;
+  line-height: 1.6;
+}
+
+/* 2. Header */
+header {
+  background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+  color: var(--white);
+  text-align: center;
+  padding: 36px 16px;
+  border-bottom: 6px solid var(--tangerine);
+}
+
+header h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2.6rem;
+  letter-spacing: 2px;
+}
+
+header p {
+  margin: 8px 0 0;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+
+/* 3. Navigation */
+header nav {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+header nav a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 8px 20px;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 999px;
+  transition:
+    background-color 0.3s,
+    border-color 0.3s,
+    transform 0.3s;
+}
+
+header nav a:hover {
+  background-color: var(--tangerine);
+  border-color: var(--tangerine);
+  transform: translateY(-2px);
+}
+
+/* 4. Centred content and cards */
+main {
+  max-width: 680px;
+  margin: 32px auto;
+  padding: 0 16px;
+}
+
+section {
+  background: var(--white);
+  padding: 28px;
+  border-radius: 18px;
+  margin-bottom: 28px;
+  border-top: 6px solid var(--persimmon);
+  box-shadow: 0 8px 24px rgba(15, 123, 120, 0.15);
+}
+
+section h2 {
+  margin-top: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--clay);
+}
+
+/* 5. Forms */
+#note-form,
+#feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#note-form label,
+#feedback-form label {
+  display: block;
+  font-weight: bold;
+  color: var(--teal);
+  margin-bottom: 4px;
+}
+
+#note-title,
+#note-content,
+#feedback-name,
+#feedback-email,
+#feedback-message {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid var(--tangerine);
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+#note-title:focus,
+#note-content:focus,
+#feedback-name:focus,
+#feedback-email:focus,
+#feedback-message:focus {
+  outline: none;
+  border-color: var(--persimmon);
+  box-shadow: 0 0 0 4px rgba(255, 106, 61, 0.25);
+}
+
+button {
+  align-self: flex-start;
+  background: linear-gradient(135deg, var(--tangerine), var(--persimmon));
+  color: var(--white);
+  border: none;
+  padding: 12px 28px;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    background 0.2s;
+}
+
+button:hover {
+  background: var(--clay);
+  transform: translateY(-2px);
+}
+
+/* 6. Features grid */
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.features li {
+  background-color: var(--peach);
+  border-top: 5px solid var(--persimmon);
+  border-radius: 12px;
+  padding: 18px 16px;
+  font-weight: 600;
+  color: var(--clay);
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(180, 83, 58, 0.12);
+}
+
+.features li:nth-child(even) {
+  border-top-color: var(--teal);
+}
+
+/* 7. About page: lists, table, keys */
+section ol,
+section ul {
+  padding-left: 24px;
+}
+
+section li::marker {
+  color: var(--persimmon);
+  font-weight: bold;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #f0c9b3;
+  padding: 12px 14px;
+}
+
+th {
+  background-color: var(--teal);
+  color: var(--white);
+  text-align: left;
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--peach);
+}
+
+kbd {
+  background-color: var(--white);
+  color: var(--clay);
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 0.9rem;
+  padding: 2px 8px;
+  border: 2px solid var(--tangerine);
+  border-bottom-width: 4px;
+  border-radius: 6px;
+}
+
+/* 8. Footer */
+footer {
+  background-color: var(--clay);
+  color: var(--white);
+  text-align: center;
+  padding: 20px 16px;
+  border-top: 6px solid var(--tangerine);
+}
+
+footer p {
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+/* 9. Phones */
+@media (max-width: 600px) {
+  header {
+    padding: 20px 12px;
+  }
+
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  section {
+    padding: 18px;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  th,
+  td {
+    padding: 10px 8px;
+  }
+}

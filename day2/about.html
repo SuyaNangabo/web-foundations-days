@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QuickNotes - About</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Matching Header & Navigation -->
+    <header>
+      <h1>QuickNotes</h1>
+      <p>Your simple note-taking companion</p>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Section 1: Introduction -->
+      <section>
+        <h2>About QuickNotes</h2>
+        <p>
+          QuickNotes is a lightweight productivity tool designed to help
+          developers and learners quickly capture ideas, daily tasks, and notes
+          without clutter.
+        </p>
+      </section>
+
+      <!-- Section 2: How to use (Ordered List with at least 3 steps) -->
+      <section>
+        <h2>How to use QuickNotes</h2>
+        <ol>
+          <li>Enter the title and details of your note in the form.</li>
+          <li>Click the "Add Note" button to save your note.</li>
+          <li>
+            View and manage your saved notes under the Recent Notes section.
+          </li>
+        </ol>
+      </section>
+
+      <!-- Section 3: Features (Unordered List) -->
+      <section>
+        <h2>Features</h2>
+        <ul class="features">
+          <li>Instant note saving with zero lag</li>
+          <li>Clean, minimal interface focused on productivity</li>
+          <li>Keyboard shortcut support for power users</li>
+        </ul>
+      </section>
+
+      <!-- Section 4: Keyboard Shortcuts Table -->
+      <section>
+        <h2>Keyboard Shortcuts</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Shortcut</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><kbd>Ctrl</kbd> + <kbd>Enter</kbd></td>
+              <td>Save current note</td>
+            </tr>
+            <tr>
+              <td><kbd>Esc</kbd></td>
+              <td>Clear input fields</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Section 5: Send Feedback Form -->
+      <section>
+        <h2>Send feedback</h2>
+        <form id="feedback-form" action="#" method="POST">
+          <div>
+            <label for="feedback-name">Name:</label>
+            <input
+              type="text"
+              id="feedback-name"
+              name="feedback-name"
+              required
+            />
+          </div>
+
+          <div>
+            <label for="feedback-email">Email:</label>
+            <input
+              type="email"
+              id="feedback-email"
+              name="feedback-email"
+              required
+            />
+          </div>
+
+          <div>
+            <label for="feedback-message">Message:</label>
+            <textarea
+              id="feedback-message"
+              name="feedback-message"
+              rows="4"
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit">Submit Feedback</button>
+        </form>
+      </section>
+    </main>
+
+    <!-- Matching Footer -->
+    <footer>
+      <p>&copy; 2026 QuickNotes. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
