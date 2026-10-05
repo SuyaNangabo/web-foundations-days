@@ -1,0 +1,50 @@
+/* 1. Light theme (default) CSS variables */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #222222;
+  --textarea-bg: #f9f9f9;
+  --border-color: #cccccc;
+}
+
+/* 2. Dark theme overrides (only redefine variables!) */
+body.dark {
+  --bg-color: #1e1e2f;
+  --text-color: #f5f5f5;
+  --textarea-bg: #2d2d44;
+  --border-color: #4f4f6f;
+}
+
+/* 3. Apply variables to the page */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+  margin: 30px;
+  line-height: 1.6;
+}
+
+textarea {
+  background-color: var(--textarea-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  font-family: inherit;
+}
+
+button {
+  padding: 8px 16px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+/* 4. Character limit status classes */
+.warning {
+  color: orange;
+}
+
+.over {
+  color: red;
+  font-weight: bold;
+}

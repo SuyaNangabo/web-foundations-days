@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 4 - Note App</title>
+
+    <!-- 1. Link stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- 2. Link JavaScript with defer -->
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <!-- Theme toggle button -->
+    <button id="theme-toggle">Dark mode</button>
+
+    <!-- Label and textarea -->
+    <div>
+      <label for="note-text">Your Note:</label>
+      <textarea
+        id="note-text"
+        rows="6"
+        cols="40"
+        placeholder="Start typing here..."
+      ></textarea>
+    </div>
+
+    <!-- Counters -->
+    <p id="char-count">0 / 200 characters</p>
+    <p id="word-count">0 words</p>
+
+    <!-- Clear button -->
+    <button id="clear-btn">Clear</button>
+  </body>
+</html>
