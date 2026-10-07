@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 5 - User Directory</title>
+    <!-- We load users.js with "defer" so it runs after HTML finishes parsing -->
+    <script src="users.js" defer></script>
+  </head>
+  <body>
+    <h1>User Directory</h1>
+
+    <!-- 1. The button required by the assignment -->
+    <button id="load-users">Load Users</button>
+
+    <!-- 2. The labelled filter input -->
+    <div>
+      <label for="filter-input">Filter by name:</label>
+      <input id="filter-input" type="text" placeholder="Type a name..." />
+    </div>
+
+    <!-- 3. The status paragraph for loading, success, and error messages -->
+    <p id="status"></p>
+
+    <!-- 4. The empty unordered list to display users -->
+    <ul id="users-list"></ul>
+  </body>
+</html>
