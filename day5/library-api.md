@@ -1,10 +1,10 @@
-# Kenya National Library REST API Specification
+# Library Books REST API Design
 
-This document outlines the REST API design for managing the library's book catalog and inventory.
+A RESTful API specification for managing a library's book catalog and inventory.
 
 ---
 
-## Resource Endpoints (`/books`)
+## Endpoints
 
 ### 1. List All Books
 
@@ -19,7 +19,7 @@ This document outlines the REST API design for managing the library's book catal
 
 - **Method:** `GET`
 - **Path:** `/books/:id`
-- **Description:** Retrieves the details of a specific book using its unique ID.
+- **Description:** Retrieves details of a specific book by its ID.
 - **Success Status Code:** `200 OK`
 
 ---
@@ -28,7 +28,7 @@ This document outlines the REST API design for managing the library's book catal
 
 - **Method:** `POST`
 - **Path:** `/books`
-- **Description:** Adds a brand-new book to the library catalog.
+- **Description:** Adds a new book to the library catalog.
 - **Request Body (JSON):**
   ```json
   {
