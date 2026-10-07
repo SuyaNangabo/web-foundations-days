@@ -1,92 +1,82 @@
-// The API endpoint to fetch 10 users
-const API_URL = "https://jsonplaceholder.typicode.com/users";
+// Global array to store loaded users in memory
+let users = [];
 
-// 1. Grab HTML elements from index.html
-const loadBtn = document.querySelector("#load-users");
-const filterInput = document.querySelector("#filter-input");
-const statusText = document.querySelector("#status");
-const usersList = document.querySelector("#users-list");
-
-// 2. We store users here so we can filter them WITHOUT making new network requests
-let allUsers = [];
+// DOM Element references
+const loadBtn = document.getElementById("load-users");
+const filterInput = document.getElementById("filter-input");
+const statusText = document.getElementById("status");
+const usersList = document.getElementById("users-list");
 
 /**
- * Helper function: Takes an array of users and adds them to the page
+ * Draws any array of users to the DOM
  */
-function renderUsers(usersToDisplay) {
-  // Clear any existing list items first
+function renderUsers(list) {
+  // Clear existing items
   usersList.innerHTML = "";
 
-  // If no users match, show the required message
-  if (usersToDisplay.length === 0) {
-    const emptyLi = document.createElement("li");
-    emptyLi.textContent = "No users match your filter.";
-    usersList.appendChild(emptyLi);
+  if (list.length === 0) {
+    const li = document.createElement("li");
+    li.textContent = "No users match your filter.";
+    usersList.appendChild(li);
     return;
   }
 
-  // Loop through each user and display their name, email, city, and company
-  usersToDisplay.forEach((user) => {
+  list.forEach((user) => {
     const li = document.createElement("li");
 
-    const name = user.name;
-    const email = user.email;
-    const city = user.address.city;
-    const company = user.company.name;
+    // Safe property access in case any field is missing
+    const name = user.name || "N/A";
+    const email = user.email || "N/A";
+    const city = user.address && user.address.city ? user.address.city : "N/A";
+    const company =
+      user.company && user.company.name ? user.company.name : "N/A";
 
-    // Use textContent to safely insert the text
-    li.textContent = `${name} | Email: ${email} | City: ${city} | Company: ${company}`;
-
+    // Required details: name, email, city, and company name
+    li.textContent = `${name} | ${email} | ${city} | ${company}`;
     usersList.appendChild(li);
   });
 }
 
 /**
- * Main fetch function: Loads users from the server
+ * Fetches users from JSONPlaceholder API
  */
 async function loadUsers() {
-  // Show loading state and disable button so user can't click multiple times
   statusText.textContent = "Loading users...";
   loadBtn.disabled = true;
   usersList.innerHTML = "";
-  filterInput.value = ""; // Clear the filter box
+  filterInput.value = "";
 
   try {
-    const response = await fetch(API_URL);
+    const response = await fetch("https://jsonplaceholder.typicode.com/users");
 
-    // Always check response.ok! (Fetch doesn't throw errors for 404/500 automatically)
     if (!response.ok) {
-      throw new Error(`Server returned status: ${response.status}`);
+      throw new Error(`HTTP Error: ${response.status}`);
     }
 
-    // Parse data and save it to our variable
-    allUsers = await response.json();
+    const data = await response.json();
+    users = data; // Store in memory for filtering
 
-    // Render users and show success message
-    renderUsers(allUsers);
-    statusText.textContent = `Loaded ${allUsers.length} users successfully.`;
+    renderUsers(users);
+    statusText.textContent = `Loaded ${users.length} users successfully.`;
   } catch (error) {
-    // Show user-friendly error message
     statusText.textContent =
       "Could not load users. Please check your connection.";
-    console.error(error);
+    console.error("Fetch error details:", error);
   } finally {
-    // finally runs whether the fetch succeeded or failed
     loadBtn.disabled = false;
   }
 }
 
-// 3. Listen for clicks on the "Load Users" button
+// Event Listeners
 loadBtn.addEventListener("click", loadUsers);
 
-// 4. Listen for typing in the filter box (Case-Insensitive)
-filterInput.addEventListener("input", (event) => {
-  const query = event.target.value.toLowerCase().trim();
+filterInput.addEventListener("input", (e) => {
+  const query = e.target.value.toLowerCase().trim();
 
-  // Filter the allUsers array we saved earlier
-  const matchedUsers = allUsers.filter((user) =>
+  // Filter in memory without making a new network request
+  const filtered = users.filter((user) =>
     user.name.toLowerCase().includes(query),
   );
 
-  renderUsers(matchedUsers);
+  renderUsers(filtered);
 });
